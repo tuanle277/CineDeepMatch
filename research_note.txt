@@ -1,0 +1,24 @@
+Model idea:
+from user interaction data, get user's preference on movie
+-> from that preference, take the top 1 movie and do the movie-recommendation algorithm using content-based hierachy mapping. Do the same for sequence mapping. except in the sequential one.
+
+Use the sequential models or ml classifiers to get the feature importances, get the top 10 most important features then use them for similarity score.
+
+# Movie recommendation research - graph-based-attention
+
+Tuan (Kevin) Le 25', Dat Vuong 25'
+
+Computer Science department, DePauw University
+
+Build user preference comprising with the features of the movies that the user interact with and the duration they interact with it. Normalize using runtime, for example, if the interaction duration == runtime, then if runtime is higher, it does not matter.
+
+- If it's a feature with a list, like cast or crew, get the top k most watched then do a cross-list comparision to get the similarity between all the movies in the dataset with the user's preferences. -> 0 to 1
+- If it's numerical, just use a simple algorithm to get a value representing the difference between 0 and 1. The more the difference, the closer to 0 and vice versa. -> 0 to 1
+- If it's string, the same = 1, different = 0 -> 0 to 1
+
+Multiplying these values with the weight assigned by the user then get the average.
+
+Interaction time / runtime of the movie = how engrossed the user is to that movie. E.g. A person watching 2 hours of a 2-hour movie is better than a person watching 3 hours of a 4-hour movie
+This should become the interaction time? => interest score of a user
+
+===> We get the similarity score between user's preferences with all the movies. -> get top n -> recommendation
